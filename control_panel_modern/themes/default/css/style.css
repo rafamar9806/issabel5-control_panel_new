@@ -1,0 +1,868 @@
+/* ============================================================
+   ISSABEL 5 - Control Panel - Modern Dark UI
+   Repaginação completa mantendo todos os seletores originais
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ── Variáveis globais ── */
+:root {
+  --bg-dark:        #0d1117;
+  --bg-panel:       #161b22;
+  --bg-card:        #1c2230;
+  --bg-card-hover:  #232b3e;
+  --border-subtle:  rgba(255,255,255,0.08);
+  --border-accent:  rgba(99,179,237,0.35);
+  --accent-blue:    #3b82f6;
+  --accent-cyan:    #06b6d4;
+  --accent-green:   #10b981;
+  --accent-red:     #ef4444;
+  --accent-orange:  #f59e0b;
+  --text-primary:   #e2e8f0;
+  --text-secondary: #8b9ab5;
+  --text-muted:     #4a5568;
+  --radius-sm:      6px;
+  --radius-md:      10px;
+  --radius-lg:      14px;
+  --shadow-card:    0 4px 20px rgba(0,0,0,0.4);
+  --shadow-glow:    0 0 16px rgba(59,130,246,0.25);
+  --transition:     all 0.2s ease;
+  --font:           'Inter', 'Segoe UI', Arial, sans-serif;
+}
+
+/* ── Container principal ── */
+.containerAll {
+  font-family: var(--font);
+  background: var(--bg-dark);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 16px;
+  box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+  overflow: hidden;
+  color: var(--text-primary);
+}
+
+/* ── Status bar ── */
+div.statusbar {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  margin-bottom: 14px;
+  font-size: 13px;
+  font-family: var(--font);
+}
+
+/* Texto de status inline */
+div.statusbar > span {
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* ── Contadores de ramais ── */
+.utilities-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+
+.Extensions-Calls-Count {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.Registered,
+.NotRegistered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 130px;
+  height: 72px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-subtle);
+  padding: 8px 14px;
+  background: var(--bg-card);
+  margin: 0;
+  transition: var(--transition);
+}
+
+.Registered {
+  border-color: rgba(16,185,129,0.3);
+  background: linear-gradient(135deg, rgba(16,185,129,0.08) 0%, var(--bg-card) 100%);
+}
+
+.NotRegistered {
+  border-color: rgba(239,68,68,0.3);
+  background: linear-gradient(135deg, rgba(239,68,68,0.08) 0%, var(--bg-card) 100%);
+}
+
+.Registered span,
+.NotRegistered span {
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.Count-Registered,
+.Count-NotRegistered {
+  display: block;
+  font-size: 28px !important;
+  font-weight: 700;
+  line-height: 1;
+  padding: 2px 0 !important;
+  text-shadow: none !important;
+}
+
+.Count-Registered {
+  color: var(--accent-green) !important;
+}
+
+.Count-NotRegistered {
+  color: var(--accent-red) !important;
+}
+
+/* ── Layout colunas ── */
+.left-container,
+.right-container {
+  transition: width 0.4s ease;
+}
+
+.left-container {
+  float: left;
+  width: 69%;
+  min-width: 550px;
+  padding-top: 10px;
+}
+
+.right-container {
+  float: right;
+  width: 30%;
+  min-width: 420px;
+}
+
+@media only screen and (max-width: 1399px) {
+  .left-container, .right-container { float: none; width: 100%; }
+}
+@media only screen and (min-width: 1400px) and (max-width: 1479px) {
+  .left-container { width: 52%; } .right-container { width: 35%; }
+}
+@media only screen and (min-width: 1480px) and (max-width: 1599px) {
+  .left-container { width: 57%; } .right-container { width: 35%; }
+}
+@media only screen and (min-width: 1600px) and (max-width: 1659px) {
+  .left-container { width: 60%; } .right-container { width: 30%; }
+}
+@media only screen and (min-width: 1660px) and (max-width: 1749px) {
+  .left-container { width: 63%; } .right-container { width: 30%; }
+}
+@media only screen and (min-width: 1750px) {
+  .left-container { width: 65%; } .right-container { width: 30%; }
+}
+
+/* ── Painéis (dl.faq2 / .pbxpanel) ── */
+.pbxpanel {
+  padding: 0;
+  width: auto;
+  height: auto;
+  background: var(--bg-panel);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-card);
+  list-style-type: none;
+  font-family: var(--font);
+  color: var(--text-primary);
+  font-size: 13px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.pbxpanel h1, .pbxpanel h2, .pbxpanel p { font-size: 13px; color: var(--text-primary); }
+
+dl.faq2 {
+  padding: 0;
+  margin-bottom: 10px;
+}
+
+/* Títulos de seção (dt) */
+.pbxpanel > dt,
+dl.faq2 > dt {
+  background: linear-gradient(90deg, rgba(59,130,246,0.15) 0%, rgba(6,182,212,0.08) 100%);
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--text-primary);
+  padding: 8px 14px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+/* Cabeçalho de extensões (operator-title-container) */
+.operator-title-container {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  border: none;
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 10px 14px;
+  line-height: 1.4;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  background: linear-gradient(90deg, rgba(59,130,246,0.18) 0%, rgba(6,182,212,0.08) 100%);
+  color: var(--text-primary);
+  margin: 0;
+  z-index: 2;
+}
+
+.operator-title-container .fa {
+  color: var(--accent-cyan);
+  margin-right: 6px;
+}
+
+/* ── Lista de extensões ── */
+.Extensions-List {
+  max-height: 680px;
+  overflow-y: auto;
+  padding: 6px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-blue) var(--bg-panel);
+  background: var(--bg-panel);
+  line-height: initial;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  align-content: flex-start;
+}
+
+.Extensions-List::-webkit-scrollbar { width: 4px; }
+.Extensions-List::-webkit-scrollbar-thumb { background: var(--accent-blue); border-radius: 4px; }
+.Extensions-List::-webkit-scrollbar-track { background: var(--bg-panel); }
+
+/* ── Card de extensão ── */
+.pbxelement {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 182px;
+  height: 62px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  color: var(--text-primary);
+  font-size: 11px;
+  font-family: var(--font);
+  position: relative;
+  background: var(--bg-card);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  margin: 0;
+  padding: 6px 7px 5px;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.pbxelement::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--text-muted);
+  border-radius: var(--radius-sm) 0 0 var(--radius-sm);
+  transition: var(--transition);
+}
+
+.pbxelement:hover {
+  background: var(--bg-card-hover);
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-glow);
+  transform: translateY(-1px);
+}
+
+.pbxelement > div {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Ramal ativo (chamada em andamento) */
+.pbxactive {
+  background: linear-gradient(135deg, rgba(16,185,129,0.12) 0%, var(--bg-card) 100%);
+  border-color: rgba(16,185,129,0.35);
+}
+
+.pbxactive::before {
+  background: var(--accent-green);
+}
+
+.pbxactive:hover {
+  border-color: rgba(16,185,129,0.6);
+  box-shadow: 0 0 14px rgba(16,185,129,0.2);
+}
+
+/* Texto do ramal */
+.pbxelement b {
+  color: var(--accent-cyan);
+  font-weight: 600;
+  font-size: 11px;
+}
+
+/* ── Tooltip ── */
+a.pbxtooltip {
+  text-decoration: none;
+  position: relative;
+}
+
+a.pbxtooltip > img.constantsize {
+  width: 14px;
+  height: 14px;
+  padding: 0;
+  border: 0;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+a.pbxtooltip:hover > img.constantsize { opacity: 1; }
+
+a.pbxtooltip > div {
+  display: none;
+  z-index: 6000;
+  position: absolute;
+  top: 1.4em;
+  left: 1.4em;
+  min-width: 170px;
+  min-height: 30px;
+  padding: 10px 12px;
+  background: #1e2d45;
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  color: var(--text-primary);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.5);
+  white-space: nowrap;
+  backdrop-filter: blur(8px);
+}
+
+a.pbxtooltip:hover > div { display: inline-block; }
+
+a.pbxtooltip > div > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 4px 0;
+}
+
+/* ── Monitor / chamada ── */
+span.monitor {
+  color: var(--accent-cyan);
+  font-size: 10px;
+  font-weight: 500;
+}
+
+img.icon {
+  padding: 1px;
+  border: 0;
+}
+
+/* ── Line monitor (dentro do card) ── */
+.line-monitor {
+  width: 100%;
+  display: flex;
+  margin-top: 4px;
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+.RemoteExtension span.monitor {
+  font-size: 10px;
+}
+
+/* ── Phone + mail icons ── */
+.phone-mail-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 4px;
+}
+
+.phone-icon, .mail-icon {
+  display: flex;
+  align-items: center;
+}
+
+/* ── Título editável ── */
+span.paneledittitle {
+  float: right;
+  color: var(--accent-cyan);
+  font-size: 10px;
+  margin-left: 50px;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+span.paneledittitle:hover { opacity: 1; }
+
+/* ── Filas (Queues) ── */
+.QueueView-large {
+  width: 98%;
+  height: auto;
+  padding: 2px;
+}
+
+.Queue-Container {
+  position: relative;
+  padding: 10px 12px 6px;
+  background: var(--bg-card);
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+  font-size: 12px;
+}
+
+.Queue-Container b {
+  color: var(--accent-cyan);
+  font-size: 12px;
+}
+
+.Queue-Container .fa-refresh {
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.Queue-Container .fa-refresh:hover {
+  color: var(--accent-blue);
+  transform: rotate(90deg);
+}
+
+.queueParameters {
+  font-size: 11px;
+  color: var(--text-secondary);
+  margin-top: 4px;
+}
+
+.Queue-Container-Agent-Client {
+  display: flex;
+  border-top: 1px solid var(--border-subtle);
+  overflow: auto;
+  max-height: 140px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-blue) var(--bg-panel);
+  background: var(--bg-panel);
+  padding: 6px;
+  gap: 6px;
+  font-size: 11px;
+}
+
+.Queue-Container-Agent-Client::-webkit-scrollbar { width: 4px; }
+.Queue-Container-Agent-Client::-webkit-scrollbar-thumb { background: var(--accent-blue); border-radius: 4px; }
+
+.Queue-Agents { width: 60%; }
+
+/* ── Conferências e Parking ── */
+.ParkinglotView-large,
+.ConferenceView-large {
+  width: 45%;
+  min-height: 50px;
+  padding: 6px 8px;
+  margin-right: 4px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  font-size: 11px;
+  transition: var(--transition);
+}
+
+.ParkinglotView-large:hover,
+.ConferenceView-large:hover {
+  border-color: var(--border-accent);
+}
+
+.parkinglots-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  max-height: 180px;
+  overflow-y: auto;
+  padding: 4px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent-blue) var(--bg-panel);
+}
+
+.parkinglots-list::-webkit-scrollbar { width: 4px; }
+.parkinglots-list::-webkit-scrollbar-thumb { background: var(--accent-blue); border-radius: 4px; }
+
+/* ── Agentes ── */
+.agent-container {
+  display: flex;
+  align-items: center;
+  margin-right: 4px;
+  padding: 2px 5px;
+  border-radius: 20px;
+  background: rgba(255,255,255,0.04);
+  font-size: 11px;
+  gap: 4px;
+}
+
+/* ── Círculos de status de agente ── */
+.circle {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid rgba(255,255,255,0.15);
+  flex-shrink: 0;
+}
+
+.green        { background: var(--accent-green); box-shadow: 0 0 6px rgba(16,185,129,0.5); }
+.orange       { background: #f59e0b; box-shadow: 0 0 6px rgba(245,158,11,0.4); }
+.orange-yellow{ background: linear-gradient(to right, #f59e0b 50%, #fcd34d 50%); }
+.red          { background: #f97316; box-shadow: 0 0 6px rgba(249,115,22,0.4); }
+.strong-red   { background: var(--accent-red); box-shadow: 0 0 6px rgba(239,68,68,0.5); }
+.yellow       { background: #fcd34d; }
+.gray         { background: #6b7280; }
+
+/* ── Notificação ── */
+.notification-container {
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  z-index: 9999;
+  opacity: 0;
+  transition: opacity 0.4s;
+  backdrop-filter: blur(12px);
+}
+
+.notification-message {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+/* ── Web Phone ── */
+.webPhoneContainer {
+  height: 100%;
+  width: 99%;
+  display: none;
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-md);
+  background: var(--bg-panel);
+  box-shadow: var(--shadow-card);
+  list-style-type: none;
+  font-family: var(--font);
+  color: var(--text-primary);
+}
+
+.webPhonePanel {
+  padding: 6px;
+  width: auto;
+  height: auto;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  background: var(--bg-panel);
+  box-shadow: var(--shadow-card);
+  list-style-type: none;
+  font-family: var(--font);
+  color: var(--text-primary);
+  font-size: 13px;
+  height: 390px;
+}
+
+.webPhonePosition { height: 350px; width: 100%; }
+
+.webPhonePosition dt {
+  background: linear-gradient(90deg, rgba(59,130,246,0.18) 0%, rgba(6,182,212,0.08) 100%);
+  border-bottom: 1px solid var(--border-subtle);
+  padding: 8px 12px;
+  line-height: 1.4;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+  cursor: pointer;
+}
+
+/* ── Modal ACL ── */
+.userAclModal {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 20px 60px rgba(0,0,0,0.7);
+  position: absolute;
+  top: 15%;
+  left: 25%;
+  height: auto;
+  min-height: 500px;
+  transition: all 0.3s ease;
+  font-family: var(--font);
+  color: var(--text-primary);
+  backdrop-filter: blur(20px);
+}
+
+.closeButtonAcl {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  color: var(--accent-red);
+  padding: 8px 10px;
+  font-size: 16px;
+  border-radius: var(--radius-sm);
+  transition: var(--transition);
+}
+
+.closeButtonAcl:hover {
+  background: rgba(239,68,68,0.15);
+  color: #f87171;
+}
+
+.aclInformationContainer {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.container-aclInformationDiv {
+  padding: 14px;
+  flex: 1;
+  min-width: 220px;
+}
+
+.title-container-acl {
+  text-align: center;
+  margin-bottom: 10px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  text-shadow: none;
+}
+
+.aclInformationDiv {
+  width: 100%;
+  height: 280px;
+  max-height: 280px;
+  overflow: auto;
+  border: 1px solid var(--border-subtle);
+  padding: 8px;
+  box-sizing: border-box;
+  background: var(--bg-dark);
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.3);
+  border-radius: var(--radius-sm);
+  transition: border-color 0.2s;
+}
+
+.aclInformationDiv:hover { border-color: var(--border-accent); }
+
+.aclSelectBox {
+  display: block;
+  margin: 14px auto 0;
+  min-width: 200px;
+  height: 38px;
+  font-size: 13px;
+  font-family: var(--font);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  padding: 5px 10px;
+  transition: var(--transition);
+  appearance: none;
+}
+
+.aclSelectBox:hover, .aclSelectBox:focus {
+  border-color: var(--accent-blue);
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(59,130,246,0.2);
+}
+
+.queueItem,
+.extensionItem {
+  padding: 6px 8px;
+  margin: 3px;
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  color: var(--text-primary);
+  font-size: 12px;
+  background: var(--bg-card);
+}
+
+.queueItem:hover, .extensionItem:hover {
+  background: var(--accent-blue);
+  border-color: var(--accent-blue);
+  color: #fff;
+}
+
+.buttonsContainerAcl {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 14px;
+}
+
+.buttonsContainerAcl button {
+  padding: 9px 18px;
+  font-size: 13px;
+  font-family: var(--font);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  transition: var(--transition);
+  height: 38px;
+  width: 160px;
+  letter-spacing: 0.03em;
+}
+
+.buttonsContainerAcl button:first-child {
+  background: var(--accent-green);
+  color: #fff;
+}
+
+.buttonsContainerAcl button:first-child:hover {
+  background: #059669;
+  box-shadow: 0 0 12px rgba(16,185,129,0.3);
+}
+
+.buttonsContainerAcl button:last-child {
+  background: var(--accent-red);
+  color: #fff;
+}
+
+.buttonsContainerAcl button:last-child:hover {
+  background: #dc2626;
+  box-shadow: 0 0 12px rgba(239,68,68,0.3);
+}
+
+/* ── Botões utilitários ── */
+.operator-button-container {
+  width: 40%;
+  padding: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.utility-button {
+  width: 44px;
+  height: 44px;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-accent);
+  background: var(--bg-card);
+  color: var(--text-primary);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.utility-button:hover {
+  border-color: var(--accent-blue);
+  background: rgba(59,130,246,0.15);
+  box-shadow: var(--shadow-glow);
+  transform: scale(1.05);
+}
+
+.button-with-description {
+  width: 58px;
+  text-align: center;
+  font-size: 10px;
+  color: var(--text-secondary);
+}
+
+/* ── Setas ACL ── */
+.arrow-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+.arrow-button {
+  font-size: 20px;
+  background: transparent;
+  cursor: pointer;
+  padding: 3px 6px;
+  line-height: 100%;
+  border-radius: var(--radius-sm);
+  min-width: 28px;
+  outline: none;
+  border: 1px solid transparent;
+  transition: var(--transition);
+}
+
+.arrow-button:hover { background: rgba(59,130,246,0.15); border-color: var(--accent-blue); }
+.arrow-button.right { color: var(--accent-green); }
+.arrow-button.left  { color: var(--accent-red); }
+
+/* ── Checkboxes ACL ── */
+.checkboxContainerAcl { color: var(--text-primary); }
+
+.checkboxAclButtons,
+.checkboxAclAdminContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 4px;
+  justify-content: center;
+  gap: 4px;
+}
+
+.checkboxWrapper input[type="checkbox"] { display: none; cursor: pointer; }
+
+.checkboxWrapper input[type="checkbox"] + label::before {
+  font-family: FontAwesome;
+  content: "\f096";
+  width: 18px;
+  display: inline-block;
+  font-size: 16px;
+  vertical-align: middle;
+  line-height: 20px;
+  color: var(--accent-blue);
+  cursor: pointer;
+}
+
+.checkboxWrapper input[type="checkbox"]:checked + label::before {
+  content: "\f046";
+  color: var(--accent-cyan);
+}
+
+.checkboxWrapper label { margin-right: 8px; cursor: pointer; font-size: 12px; color: var(--text-secondary); }
+
+/* ── ACL container ── */
+#Acl {
+  width: 15%;
+  display: flex;
+  flex-wrap: wrap;
+  padding: 8px;
+  justify-content: end;
+}
+
+/* ── FAQ ── */
+dl.faq2 > dd { color: var(--text-secondary); font-size: 12px; padding: 6px 12px; }
+
+/* ── Trunks section ── */
+.pbxpanel > dt b,
+dl > dt b {
+  color: var(--accent-cyan);
+}
+
+/* Garantir visibilidade de texto dentro dos cards de trunk */
+.pbxpanel b { color: var(--accent-cyan); font-weight: 600; }
